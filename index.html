@@ -3,13 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Star Wars Guessing Game</title>
+    <title>Web Dev Quiz Game</title>
     <link rel="reset" href="./assets/CSS/reset.css"/>
     <link rel="stylesheet" href="./assets/CSS/style.css"/>
 </head>
 <body>
 
+    <header id="home" class="title">
+        <div class="container flex">
+          <h1>
+            Web Dev Quiz Game
+            </h1>
+            <h3>
+                <a href="" id="score-board">High Scores</a>
+            </h3>
+        </div>
+    </header>
 
-    <script src="./Assets/js/script.js"></script>
+    <main>
+        <div class="container flex" id="game-header">
+            <h2>Game Rules</h2>
+            <p id="game-rules">
+                A multiple-choice style game to quiz you on web developement topics such as <span id="bold-text"> HTML, CSS and javaScript!</span>
+                To play the game, press the <span id="bold-text">START</span> button to start the quiz and the countdown timer.
+                Answer the question presented to move on but choose carefully as an incorrect answer will subtract time from the timer.
+                The game will end when all questions are correctly answered or the timer runs out. Your score is the remaining time. 
+            </p>
+        </div>
+
+        <div>
+            <button class="start-button">Start Game</button>
+        </div>
+        
+        <div class="container flex" id="game-area">
+
+        </div>
+
+
+    </main>
+
+
+
+
+
+
+
+<script src="./Assets/js/script.js"></script>
 </body>
 </html>

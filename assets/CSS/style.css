@@ -1,0 +1,142 @@
+body {
+    background-color:#1e1f26;
+    text-align: center;  
+    margin: 0;
+}
+
+a { 
+    text-decoration: none;
+    color: inherit;
+}
+
+
+/* ------------------------------------------------------------------------------------------------------------ */
+
+
+header{
+    background-color:#3D3B8E;
+    min-height: 80px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 100px;
+}
+    
+header .title {
+    margin: 0 auto;
+    overflow: auto; 
+    
+    
+}
+
+header .container {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+    color: #06D6A0;
+    padding: 14px;
+}
+
+header div {
+    max-width: 1500px;
+    
+}
+
+header h1 {
+    color: #06D6A0;
+    font-size: 36pt;
+    padding: 10px;
+}
+
+#score-board {
+   padding: 20px 30px;
+   color: #EF476F;
+   font-size: 24pt;
+   border-radius: 50px;
+   padding: 10px;
+}
+
+@media screen and (max-width: 768px) {
+    #score-board {
+        padding: 20px 15px;
+
+    }
+}
+
+#score-board:hover {
+    transition-duration: 500ms;
+    background-color:#1e1f26;
+    color: #06D6A0;
+    border: 5px solid #B191FF;
+    
+}
+
+
+
+/* ------------------------------------------------------------------------------------------------------------ */
+
+
+
+main {
+    color: lightgray;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+
+main .flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    max-width: 1500px;
+    /* flex: 1 0; */
+
+}
+
+#game-header h2  {
+    font-size: 28pt;
+    padding: 10px;
+    width: 50%;
+    min-width: ;
+    color: #06D6A0;
+    background-color: #3D3B8E;
+    border: 5px solid #B191FF;
+    border-radius: 200px ;
+}
+
+/* #game-header h2: {
+    #game-header p {
+        displa
+    }
+} */
+
+#game-header p {
+    width: 50%;
+    border: 5px dotted #B191FF;
+    border-radius: 25px;
+    color: lightgray;
+    padding: 15px;
+    font-size: 16pt;
+}
+
+#games-rules #bold-text {
+    
+}
+
+main div .start-button {
+    background-color: #EF476F; /* Green */
+    border: 5px solid #B191FF ;
+    font-size: 16px;
+    border-radius: 25px;
+    padding: 25px 100px;
+
+    
+}
+
+/* ------------------------------------------------------------------------------------------------------------ */
