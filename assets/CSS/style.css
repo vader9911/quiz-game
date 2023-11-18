@@ -19,35 +19,34 @@ a {
 
 
 header{
+    display: flex;
     background-color:#3D3B8E;
     min-height: 80px;
-    display: flex;
-    justify-content: center;
-    margin-bottom: 180px;
+    max-height: 280px;
+    align-content: center;
+    justify-content: center; 
+
 }
     
-header .title {
-    margin: 0 auto;
+header.title {
+    text-align: center;
+    margin-bottom: 180px;
     overflow: auto; 
     
-    
 }
 
-header .container {
-    width: 100%;
+ header div.container {
     display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-wrap: wrap;
-    flex-direction: row;
+    max-width: 1500px;
     color: #06D6A0;
-    padding: 14px;
+    padding: 14px; 
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    flex: 1 1 1500px;
 }
 
-header div {
-    max-width: 1500px;
-    
-}
+
 
 header h1 {
     color: #06D6A0;
@@ -63,13 +62,6 @@ header h1 {
    padding: 10px;
 }
 
-@media screen and (max-width: 768px) {
-    #score-board {
-        padding: 20px 15px;
-
-    }
-}
-
 #score-board:hover {
     transition-duration: 500ms;
     background-color:#1e1f26;
@@ -77,6 +69,30 @@ header h1 {
     border: 5px solid #B191FF;
     
 }
+
+@media screen and (max-width: 926px) {
+   
+    header div h1 {
+        padding: 5px;
+        font-size: 30pt ;
+    }
+
+    header.title {
+        margin-bottom: 100px;
+    }
+
+    header div.container{
+        flex-direction: column;
+        justify-content: center;
+        flex-wrap: nowrap;
+        padding: 5px;
+    } 
+    #score-board {
+        padding: 5px;
+        font-size: 24pt;
+    }
+}
+/* ------------------------------------------------------------------------------------------------------------ */
 
 
 
@@ -86,7 +102,12 @@ header h1 {
 
 
 
+section{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 
+}
 
 section .flex {
     display: flex;
@@ -97,11 +118,19 @@ section .flex {
     
 }
 
-
-.intro:hover{
-    
-    display: none;
+@media screen and (max-width: 768px) {
+    section#intro{
+        margin: 0;
+    }
 }
+
+/* ------------------------------------------------------------------------------------------------------------ */
+/* test with intro gone */
+section.intro{
+    
+    /* display: none; */
+}
+/* ------------------------------------------------------------------------------------------------------------ */
 
 #game-header h2  {
     font-size: 28pt;
@@ -118,7 +147,7 @@ section .flex {
 
 #game-rules {
     width: 50%;
-    min-width: 250px;
+    min-width: 350px;
     border: 5px dotted #B191FF;
     border-radius: 25px;
     color: lightgray;
@@ -154,8 +183,33 @@ section .flex {
 }
 
 /* ------------------------------------------------------------------------------------------------------------ */
+/* Styles for quiz section */
+
+section.quiz{
+    font-size: 76pt;
+    max-width: 1500px;
+}
+
+section.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+    max-width: 1500px; 
+}
 
 
-/* main section #intro {
+
+
+/* ------------------------------------------------------------------------------------------------------------ */
+
+/* styles for question cards */
+
+.answers {
+    list-style-type:num;
+}   
+
+.answers #key {
     display: none;
-} */
+}
