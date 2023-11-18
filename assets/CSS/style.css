@@ -1,7 +1,12 @@
+*{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
 body {
     background-color:#1e1f26;
     text-align: center;  
     margin: 0;
+    line-height: 1.5;
 }
 
 a { 
@@ -18,7 +23,7 @@ header{
     min-height: 80px;
     display: flex;
     justify-content: center;
-    margin-bottom: 100px;
+    margin-bottom: 180px;
 }
     
 header .title {
@@ -77,47 +82,43 @@ header h1 {
 
 /* ------------------------------------------------------------------------------------------------------------ */
 
+/* Main body styling */
 
 
-main {
-    color: lightgray;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-}
 
 
-main .flex {
+
+section .flex {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
     max-width: 1500px;
-    /* flex: 1 0; */
+    
+}
 
+
+.intro:hover{
+    
+    display: none;
 }
 
 #game-header h2  {
     font-size: 28pt;
     padding: 10px;
     width: 50%;
-    min-width: ;
+    min-width: 250px;
     color: #06D6A0;
-    background-color: #3D3B8E;
+    background-color: #1e1f26;
     border: 5px solid #B191FF;
     border-radius: 200px ;
 }
 
-/* #game-header h2: {
-    #game-header p {
-        displa
-    }
-} */
 
-#game-header p {
+
+#game-rules {
     width: 50%;
+    min-width: 250px;
     border: 5px dotted #B191FF;
     border-radius: 25px;
     color: lightgray;
@@ -125,18 +126,36 @@ main .flex {
     font-size: 16pt;
 }
 
-#games-rules #bold-text {
+#bold-text {
+    font-weight: bolder;
+    color: #EF476F;
+    text-decoration: underline;
     
 }
 
-main div .start-button {
-    background-color: #EF476F; /* Green */
-    border: 5px solid #B191FF ;
-    font-size: 16px;
-    border-radius: 25px;
-    padding: 25px 100px;
+/* Start button styling */
 
-    
+.start-button {
+    font-size: 28pt;
+    padding: 10px;
+    font-weight: bold;
+    min-width: 250px;
+    color: #1e1f26;
+    background-color: #EF476F;
+    border: 5px solid #B191FF;
+    border-radius: 200px ;
+    transition-duration: 500ms;
+    transition-timing-function: ease-in-out;
+}
+
+.start-button:hover {
+    background-color: #06D6A0;
+    padding: 30px;
 }
 
 /* ------------------------------------------------------------------------------------------------------------ */
+
+
+/* main section #intro {
+    display: none;
+} */
