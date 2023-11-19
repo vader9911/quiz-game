@@ -192,6 +192,11 @@ section.quiz{
     font-size: 38pt;
     color: #B191FF;
 
+/* ------------------------------------------------------------------------------------------------------------ */
+
+    display: none;
+/* ------------------------------------------------------------------------------------------------------------ */
+
 } 
 
 section div#game{
@@ -296,3 +301,83 @@ ul.answers li#key {
 }
 
 
+/* ------------------------------------------------------------------------------------------------------------ */
+
+/* Styles for game over */
+
+section div#end-game{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+    max-width: 1500px; 
+}
+
+
+div#end-game h2 {
+    color:#B191FF;
+    text-decoration: underline;
+    margin: auto 30px;
+    text-shadow: 3px 3px #3D3B8E;
+    font-size: 48pt;
+    margin-bottom:40px ;
+}
+
+
+div#end-game h3#score{
+    color: #06D6A0;
+}
+
+div#end-game h3#recent-score{
+    color:#EF476F;
+    text-decoration: underline;
+    margin: auto 30px;
+    text-shadow: 3px 3px #3D3B8E;
+    font-size: 28pt;
+    margin-bottom:40px ;
+} 
+
+
+div#end-game .scoreboard {
+    font-size: 28pt;
+}
+
+section div#end-game #user-score {
+    text-decoration: none;
+    color: #06D6A0;
+    text-shadow:1px 1px  #3D3B8E;
+    padding: 0 15px;
+    font-size: 28pt;
+    margin-bottom:40px ;
+}
+
+
+/* ------------------------------------------------------------------------------------------------------------ */
+/* scorboard styling */
+
+table, th, td {
+    color: #B191FF;
+    padding: 10px 40px;
+    border-collapse: collapse;
+    border-left: 20px solid #1e1f26;
+    border-right: 20px solid #1e1f26;
+    border-top: 10px solid #1e1f26;
+    border-bottom: 10px solid #1e1f26;
+}
+
+
+
+th{
+    background-color:#3D3B8E ;
+}
+
+
+td{
+    padding: 10px;
+    height:fit-content;
+    color:#3D3B8E;
+    background-color: #B191FF;
+    text-shadow:1px 1px  #06D6A0;
+}
+    
