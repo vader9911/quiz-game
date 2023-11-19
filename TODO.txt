@@ -1,0 +1,77 @@
+to do
+
+HTML
+/* ------------------------------------------------------------------------------------------------------------ */
+add CARD for end of game
+    box to input 3 letter initals
+    show a leaderboard
+
+
+CSS
+/* ------------------------------------------------------------------------------------------------------------ */
+
+
+style CARD for end of game
+    similar to start of game card
+    but with leaderboard and initals box
+
+
+javaScript
+
+/* ------------------------------------------------------------------------------------------------------------ */
+
+object array that contains the 
+    questions
+    answers  
+    key
+
+
+write a function
+    write the object array to the html elments
+    
+    write a function to form the question card
+        randomize the question 
+        randomize the order of the answers
+
+
+write a function for the game timer
+    countdown from 180
+    find remainder when game = complete
+
+
+when a user selects an answer
+
+    if the correct answer:
+        change to green if right 
+        go to next question
+
+    if the incorrect answer:
+        change to red
+        subtract 5 seconds from timer
+
+
+write a function on start press
+    hide the info card
+    show the quiz card
+
+
+write a function for the end of the game
+    if all question-complete = 10
+    or 
+    if timer <= 0 
+    end the game
+
+    if question-complete = 10 then find the remainder of the timer 
+    log to local storage 
+
+
+end of game card    
+    input box for initals
+
+    log initals and score to local storage
+
+    display table of high scores
+
+
+create a popout for the leaderboard that displays the highest scores
+    pull data from local storage 
