@@ -128,8 +128,9 @@ section .flex {
 /* ------------------------------------------------------------------------------------------------------------ */
 /* test with intro gone */
 section.intro{
+    transition-duration: 500ms;
     
-    /* display: none; */
+    display: none;
 }
 /* ------------------------------------------------------------------------------------------------------------ */
 
@@ -164,6 +165,9 @@ div#game-header h2  {
 }
 
 /* Start button styling */
+div.start{
+    padding: 10px;
+}
 
 .start-button {
     font-size: 28pt;
@@ -321,14 +325,18 @@ ul.answers li#key {
 
 /* Styles for game over */
 
+section.game-over{
+    display: none;
+}
+
 section div#end-game{
-    display: flex;
+    display: flex; 
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
     flex-direction: column;
     max-width: 1500px; 
-    display: none;
+    
 }
 
 
@@ -344,6 +352,7 @@ div#end-game h2 {
 
 div#end-game h3#score{
     color: #06D6A0;
+    font-size: 28pt;
 }
 
 div#end-game h3#recent-score{
@@ -361,8 +370,8 @@ div#end-game .scoreboard {
 }
 
 section div#end-game #user-score {
-    text-decoration: none;
-    color: #06D6A0;
+    text-decoration: underline;
+    color: #B191FF;
     text-shadow:1px 1px  #3D3B8E;
     padding: 0 15px;
     font-size: 28pt;

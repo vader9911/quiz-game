@@ -4,12 +4,14 @@ var endPg  = document.querySelector(".game-over");
 
 var timerEl = document.querySelector(".timer-bar");
 
-var startButton = document.querySelector(".start-button");
+var startButton = document.querySelector("div.start");
 
-var questionCount = document.querySelector(".question-counter")
+var questionCount = document.querySelector("#count");
 
+var userScore = document.querySelector("#user-score");
 
-var quizRunning = true;
+var score = 0;
+var quizRunning = false;
 
 
 startButton.addEventListener("click", function() {
@@ -17,28 +19,72 @@ startButton.addEventListener("click", function() {
 
     if (quizRunning == false ) {
 
-        quizRunning == true;
+      quizRunning == true;
 
-        introPg.setAttribute("style", "display: hidden;");
+      // introPg.computedStyleMap.transitionDelay = "1s";
 
-        gameTimer(timeLeft)
-    }
+      introPg.setAttribute("style", "display: none;");
+
+      quizPg.setAttribute("style", "display: inherit;");
+
+      runGame();
+        }
 
 });
 
 
-function gameTimer(timeLeft){
-    var secondsLeft = 180;
+
+function gameTimer(){
+    
+    var secondsLeft = 1080;
+    
+    timeLeft = 0;
     // Sets interval in variable
     var timerInterval = setInterval(function() {
       secondsLeft--;
+      questionCount++;
       timerEl.textContent = secondsLeft;
   
-      if(secondsLeft === 0) {
+      if(secondsLeft === 178) {
+        score = secondsLeft;
+        endGame();
         // Stops execution of action at set interval
         clearInterval(timerInterval);
-      }else if (questionCount)
-  
-  
+        return;
+
+      }else if (questionCount == 10){
+        score = secondsLeft;
+        endGame();
+        
+        
+        return;
+      }
+      
+   
     }, 1000);
+}
+
+
+function timerBar() {  
+  
+
+}
+
+
+
+
+function runGame(){
+  gameTimer();
+
+}
+
+
+function endGame() {
+    quizRunning = false;
+    quizPg.setAttribute("style", "display: none;");
+    endPg.setAttribute('style', "display: inherit; ");
+    userScore.textContent = score;
+    
+    
+    
 }
