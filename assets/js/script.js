@@ -1,5 +1,5 @@
 var introPg = document.querySelector(".intro");
-var quizPg  = document.querySelector(".quiz");
+var quizPg  = document.querySelector("#quiz");
 var endPg  = document.querySelector(".game-over");
 
 var timerEl = document.querySelector(".timer-bar");
@@ -49,15 +49,13 @@ function gameTimer(){
 
    // Stops execution of game when timer = 0 secs
       if(secondsLeft === 0) {
-        score = secondsLeft;
         endGame();
         clearInterval(timerInterval);
-        return;
+        
   //conditional for when the user finishes the quiz
       }else if (questionCount == 10){
         score = secondsLeft;
-        endGame();        
-        return;
+        endGame();       
       }
     
     }, 1000);
@@ -77,12 +75,20 @@ function endGame() {
     quizRunning = false;
     quizPg.setAttribute("style", "display: none;");
     endPg.setAttribute('style', "display: inherit; ");
-    userScore.textContent = score;       
+
+    score = secondsLeft;
+  
+    userScore.textContent = score;
+     
 }
 //----------------------------------------------------------------------------------------//
 //questions broken into sub properites of the questions object.                                     
 const questions = [
-  
+  {
+      question: "Which JavaScript keyword is used to declare a function?",
+      choices: ["figure()", "function()", "math()", "fun()"],
+      answer: "function()"
+  },
   {
       question: "Which JavaScript keyword is used to declare a variable?",
       choices: ["var", "let", "const", "variable"],
@@ -99,7 +105,7 @@ const questions = [
       answer: "Color"
   },
   {
-      question: "In HTML, the &lt;ol&gt; tag is used to define a(n) _______ list.",
+      question: "In HTML, the \"ol\" tag is used to define a(n) _______ list.",
       choices: ["Ordered", "Definition", "Unordered", "Description"],
       answer: "Ordered"
   },
@@ -109,7 +115,7 @@ const questions = [
       answer: "Margin"
   },
   {
-      question: "The CSS selector \".class\" is used to select elements with a specific _______.",
+      question: "The CSS selector \".\" is used to select elements with a specific _______.",
       choices: ["ID", "Tag", "Attribute", "Class"],
       answer: "Class"
   },
@@ -132,9 +138,10 @@ const questions = [
       question: "What does CSS stand for?",
       choices: ["Counter Style Sheets", "Cascading Style Sheets", "Computer Style Sheets", "Creative Style Sheets"],
       answer: "Cascading Style Sheets"
-  },
+  }
   
-]//----------------------------------------------------------------------------------------//
+]
+//----------------------------------------------------------------------------------------//
 // Function to create and populate a quiz card
 
 function createAndPopulateCard(questionObj, cardNumber) {
@@ -191,7 +198,6 @@ function createAndPopulateCard(questionObj, cardNumber) {
       const correctAnswer = questionObj.answer;
 
       if (clickedAnswer === correctAnswer) {
-          currentQuestionIndex = currentQuestionIndex + 1;
           questionCount.textContent = currentQuestionIndex;
           console.log(currentQuestionIndex);
           showNextQuestion();
