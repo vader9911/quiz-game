@@ -24,8 +24,8 @@ The following is still needed:
 
 ## Preview
 
-![a picture of the finished start page of the quiz](assets/images/Screenshot%20quiz-game.png)
-   
+![a picture of the finished start page of the quiz]((https://github.com/vader9911/quiz-game/assets/82685075/cf5e13f2-b298-472d-b044-ed3eddc10e6f)
+
 ## Sources
 
 MDN was used for code snippets and research.
