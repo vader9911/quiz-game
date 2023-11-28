@@ -130,7 +130,7 @@ section .flex {
 section.intro{
     transition-duration: 500ms;
     
-    display: none;
+    /* display: none; */
 }
 /* ------------------------------------------------------------------------------------------------------------ */
 
@@ -200,7 +200,7 @@ section.quiz{
 
 /* ------------------------------------------------------------------------------------------------------------ */
 
-    /* display: none; */
+    display: none;
 /* ------------------------------------------------------------------------------------------------------------ */
 
 } 
@@ -221,6 +221,16 @@ div#game{
     align-items: center;
     flex-wrap: wrap;
     max-width: 1500px;
+}
+
+div.timer-bar {
+    /* display: none; */
+    width:480px;
+    border: 5px solid #3D3B8E;
+    border-radius: 25px;
+    color: #B191FF;
+    padding: 5px;
+    font-size: 22pt;
 }
 
 div#game .question-head{
@@ -254,15 +264,7 @@ div.card h3.question{
     font-size: 22pt;
 }
 
-div.timer-bar {
-    /* display: none; */
-    width:480px;
-    border: 5px solid #3D3B8E;
-    border-radius: 25px;
-    color: #B191FF;
-    padding: 5px;
-    font-size: 22pt;
-}
+
 
 
 
