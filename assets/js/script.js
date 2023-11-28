@@ -15,21 +15,29 @@ var quizRunning = false;
 
 
 
+let currentQuestionIndex = 0;
 
 
 
+function showNextQuestion() {
+    // Check if there are more questions to display
+    if (currentQuestionIndex < questions.length) {
+        // Get the current question from the array
+        const currentQuestion = questions[currentQuestionIndex];
 
-startButton.addEventListener("click", function() {
+        // Create and populate the card for the current question
+        createAndPopulateCard(currentQuestion, currentQuestionIndex + 1);
 
-    if (quizRunning == false ) {
-      quizRunning = true;
-      introPg.setAttribute("style", "display: none;");
-      quizPg.setAttribute("style", "display: inherit;");
-      showNextQuestion();
-      // runGame();
-        }
+        // Increment the current question index for the next iteration
+        currentQuestionIndex++;
+        setTimeout(showNextQuestion, 3000);
+        // You might want to include a mechanism to handle user input and scoring here
 
-});
+    } else {
+        // If there are no more questions, end the game
+        endGame();
+    }
+}
 
 
 
@@ -62,8 +70,12 @@ function gameTimer(){
 //Function to run the game: starts the timer and creates the card for the question.
 //----------------------------------------------------------------------------------------//
 function runGame(){
+
   gameTimer();
-  createAndPopulateCard();
+
+
+  // showNextQuestion();
+  //createAndPopulateCard();
   
 }
 //----------------------------------------------------------------------------------------//
@@ -143,11 +155,18 @@ const questions = [
 
 // Function to create and populate a quiz card
 function createAndPopulateCard(questionObj, cardNumber) {
+//clears current card before loading new one
+  const existingCard = document.querySelector('.card');
+    if (existingCard) {
+        existingCard.remove();
+    }
+
+
   const card = document.createElement('div');
   card.classList.add('card');
   card.id = `card${cardNumber}`;
 
-  document.getElementById('game').appendChild(card);
+  document.querySelector('.quiz-cards').appendChild(card);
 
   // Populate the card with questionObj
   const questionElement = document.createElement('h3');
@@ -175,8 +194,6 @@ function createAndPopulateCard(questionObj, cardNumber) {
 
   ulElement.appendChild(keyLiElement);
   card.appendChild(ulElement);
-
-
   
 }
 
@@ -187,4 +204,15 @@ for (let i = 0; i < questions.length; i++) {
   createAndPopulateCard(questions[i], i + 1);
 }
  
+//Event listner for the start game button 
+startButton.addEventListener("click", function() {
 
+  if (quizRunning == false ) {
+    quizRunning = true;
+    introPg.setAttribute("style", "display: none;");
+    quizPg.setAttribute("style", "display: inherit;");
+    // showNextQuestion();
+    runGame()
+      }
+
+});
