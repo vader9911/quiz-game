@@ -15,35 +15,32 @@ var quizRunning = false;
 
 
 
-let currentQuestionIndex = 0;
+var currentQuestionIndex = 1;
 
 
-
+//----------------------------------------------------------------------------------------//
+//function to control the display of the question card. 
 function showNextQuestion() {
     // Check if there are more questions to display
     if (currentQuestionIndex < questions.length) {
         // Get the current question from the array
         const currentQuestion = questions[currentQuestionIndex];
-
         // Create and populate the card for the current question
         createAndPopulateCard(currentQuestion, currentQuestionIndex + 1);
-
         // Increment the current question index for the next iteration
         currentQuestionIndex++;
-        setTimeout(showNextQuestion, 3000);
-        // You might want to include a mechanism to handle user input and scoring here
-
     } else {
         // If there are no more questions, end the game
         endGame();
     }
 }
 
-
-
+//----------------------------------------------------------------------------------------//
+//function for timer element
+let secondsLeft = 180;
 function gameTimer(){
     
-    var secondsLeft = 180;
+    // var secondsLeft = 180;
     // Sets interval in variable
     var timerInterval = setInterval(function() {
       secondsLeft--;
@@ -56,7 +53,7 @@ function gameTimer(){
         endGame();
         clearInterval(timerInterval);
         return;
-
+  //conditional for when the user finishes the quiz
       }else if (questionCount == 10){
         score = secondsLeft;
         endGame();        
@@ -67,54 +64,34 @@ function gameTimer(){
 }
 
 
-//Function to run the game: starts the timer and creates the card for the question.
+
 //----------------------------------------------------------------------------------------//
+//Function to run the game: starts the timer and creates the card for the question.
 function runGame(){
 
   gameTimer();
-
-
-  // showNextQuestion();
-  //createAndPopulateCard();
-  
 }
 //----------------------------------------------------------------------------------------//
-
 //Function that runs when the game ends. Displays the endgame screen and updates the score.
-//----------------------------------------------------------------------------------------//
 function endGame() {
     quizRunning = false;
     quizPg.setAttribute("style", "display: none;");
     endPg.setAttribute('style', "display: inherit; ");
-    userScore.textContent = score;
-       
+    userScore.textContent = score;       
 }
 //----------------------------------------------------------------------------------------//
-
-/* old removed for testing
-// question selector vars
-// var questCard = document.querySelector('.quiz');
-// var questChoices = questCard.querySelector('.choice');
-// var questQuery = questCard.querySelector('.question');
-// var quest = questCard.querySelector(".answer-check");
-*/
 //questions broken into sub properites of the questions object.                                     
 const questions = [
   
   {
-    question: "In HTML, the &lt;_____&gt;&lt;/_____&gt; tag is used to create a line break.",
-    choices: ["&lt;br&gt;&lt;/br&gt;", "&lt;p&gt;&lt;/p&gt;", "&lt;lb&gt;&lt;/lb&gt;", "&lt;hr&gt;&lt;/hr&gt;"],
-    answer: "&lt;br&gt;&lt;/br&gt;"
+      question: "Which JavaScript keyword is used to declare a variable?",
+      choices: ["var", "let", "const", "variable"],
+      answer: "var"
   },
   {
-      question: "CSS is an abbreviation for Cascading Style _______",
-      choices: ["Scripts", "Sheets", "System", "Syntax"],
-      answer: "Sheets"
-  },
-  {
-      question: "JavaScript is primarily a _______-side scripting language.",
-      choices: ["Server", "Client", "Both", "None"],
-      answer: "Client"
+      question: "In CSS, what property is used to control the spacing between lines of text?",
+      choices: ["text-spacing", "line-height", "letter-spacing", "text-line"],
+      answer: "line-height"
   },
   {
       question: "The CSS property \"color\" is used to define the text _______.",
@@ -127,9 +104,9 @@ const questions = [
       answer: "Ordered"
   },
   {
-      question: "The JavaScript function _________() is used to alert a message.",
-      choices: ["print()", "alertText()", "display()", "showAlert()"],
-      answer: "alert()"
+      question: "The CSS property \"margin\" is used to control the _______ of an element.",
+      choices: ["Border", "Padding", "Spacing", "Margin"],
+      answer: "Margin"
   },
   {
       question: "The CSS selector \".class\" is used to select elements with a specific _______.",
@@ -138,8 +115,8 @@ const questions = [
   },
   {
       question: "The HTML _______ element is used to define an image.",
-      choices: ["&lt;img&gt;", "&lt;picture&gt;", "&lt;figure&gt;", "&lt;image&gt;"],
-      answer: "&lt;img&gt;"
+      choices: ["img", "picture", "fig", "image"],
+      answer: "img"
   },
   {
       question: "The JavaScript _______ method is used to add new items to the beginning of an array.",
@@ -150,10 +127,16 @@ const questions = [
       question: "The CSS property \"width\" is used to control the _______ of an element.",
       choices: ["Height", "Width", "Size", "Length"],
       answer: "Width"
-  }
-]
-
+  },
+  {
+      question: "What does CSS stand for?",
+      choices: ["Counter Style Sheets", "Cascading Style Sheets", "Computer Style Sheets", "Creative Style Sheets"],
+      answer: "Cascading Style Sheets"
+  },
+  
+]//----------------------------------------------------------------------------------------//
 // Function to create and populate a quiz card
+
 function createAndPopulateCard(questionObj, cardNumber) {
 //clears current card before loading new one
   const existingCard = document.querySelector('.card');
@@ -177,6 +160,7 @@ function createAndPopulateCard(questionObj, cardNumber) {
   const ulElement = document.createElement('ul');
   ulElement.classList.add('answers');
 
+
   for (let i = 0; i < questionObj.choices.length; i++) {
       const liElement = document.createElement('li');
       liElement.innerHTML = `
@@ -185,6 +169,7 @@ function createAndPopulateCard(questionObj, cardNumber) {
       `;
       ulElement.appendChild(liElement);
   }
+
 
   const keyLiElement = document.createElement('li');
   keyLiElement.id = "key";
@@ -195,15 +180,34 @@ function createAndPopulateCard(questionObj, cardNumber) {
   ulElement.appendChild(keyLiElement);
   card.appendChild(ulElement);
   
+  //--------------------------------------------------------------//
+  //function to control the answer selection and validation
+  const choices = document.querySelectorAll('.choice');
+  const choicesList = document.querySelector('li');
+  choices.forEach(choice => {
+    choice.addEventListener('click', function () {
+      // Check if the clicked choice is correct
+      const clickedAnswer = choice.textContent;
+      const correctAnswer = questionObj.answer;
+
+      if (clickedAnswer === correctAnswer) {
+          currentQuestionIndex = currentQuestionIndex + 1;
+          questionCount.textContent = currentQuestionIndex;
+          console.log(currentQuestionIndex);
+          showNextQuestion();
+      } else {
+          secondsLeft = secondsLeft -= 10;
+      }
+    });
+  });
 }
 
-
-
+//----------------------------------------------------------------------------------------//
 // Loop through the questions array and create/populate cards
 for (let i = 0; i < questions.length; i++) {
   createAndPopulateCard(questions[i], i + 1);
 }
- 
+//----------------------------------------------------------------------------------------//
 //Event listner for the start game button 
 startButton.addEventListener("click", function() {
 
@@ -211,8 +215,8 @@ startButton.addEventListener("click", function() {
     quizRunning = true;
     introPg.setAttribute("style", "display: none;");
     quizPg.setAttribute("style", "display: inherit;");
-    // showNextQuestion();
     runGame()
       }
 
 });
+//----------------------------------------------------------------------------------------//
